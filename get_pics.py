@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from io import BytesIO
 
+
 def convert_webp_to_jpg(webp_data, jpg_path):
     try:
         # 使用BytesIO创建一个虚拟文件对象
@@ -18,7 +19,7 @@ def convert_webp_to_jpg(webp_data, jpg_path):
     except Exception as e:
         print("转换失败：", str(e))
 
-def get_pics(url):
+def get_pics(url,SEASON):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
     }
@@ -41,7 +42,7 @@ def get_pics(url):
             print("标题文本：", title_text)
 
             # 创建保存图片的文件夹
-            output_folder = "Supreme_images_News"
+            output_folder = SEASON
             os.makedirs(output_folder, exist_ok=True)
 
             # 查找所有图片标签
